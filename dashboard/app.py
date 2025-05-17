@@ -18,6 +18,7 @@ import pickle
 from streamlit_folium import st_folium
 
 
+
 def set_background_and_styles():
     st.markdown(
     """
@@ -145,10 +146,7 @@ def interactive_map_page():
     try:
         
         # Load climate data
-            # Get absolute path to the root of the project
-        BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-        file_path =  os.path.join("BASE_DIR ", "data", "processed", "flitered_climate_data.csv")
+        file_path =  os.path.join("..", "data", "processed", "flitered_climate_data.csv")
         climate_data = pd.read_csv(file_path)
 
         # Create YearMonth column for animation frame
@@ -316,9 +314,7 @@ def interactive_map_page():
         elif map_type == "Fire Variables":
             st.markdown("### Fire Variables Visualization\nExplore fire-related data across Nepal's districts.")
 
-                # Get absolute path to the root of the project
-            BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-            firefile_path = os.path.join("BASE_DIR", "data", "processed", "combined_fire_climate.csv")
+            firefile_path = os.path.join("..", "data", "processed", "combined_fire_climate.csv")
             fire_data = pd.read_csv(firefile_path)
 
             fire_data['YearMonth'] = fire_data['YEAR'].astype(str) + '-' + fire_data['MONTH'].astype(str).str.zfill(2)
@@ -580,9 +576,7 @@ def data_visualization_page():
             
             # Load the data once
             try:
-                # Get absolute path to the root of the project
-                BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-                file_path = os.path.join("BASE_DIR", "data", "processed", "flitered_climate_data.csv")
+                file_path = os.path.join("..", "data", "processed", "flitered_climate_data.csv")
                 df_filtered = pd.read_csv(file_path)
                 
                 # 
@@ -683,9 +677,7 @@ def data_visualization_page():
             
             # Load the data
             try:
-                # Get absolute path to the root of the project  
-                BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-                file_path = os.path.join("BASE_DIR", "data", "processed", "flitered_climate_data.csv")
+                file_path = os.path.join("..", "data", "processed", "flitered_climate_data.csv")
                 df_filtered = pd.read_csv(file_path)
                 
               
@@ -719,9 +711,7 @@ def data_visualization_page():
             st.markdown("This bar chart shows the districts with the highest number of forest fires over the 5-year period.")
             
             try:
-                # Get absolute path to the root of the project
-                BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-                file_path = os.path.join("BASE_DIR", "data", "processed", "combined_fire_climate.csv")
+                file_path = os.path.join("..", "data", "processed", "combined_fire_climate.csv")
                 df_fire_filtered = pd.read_csv(file_path)
                 
                 
@@ -750,9 +740,7 @@ def data_visualization_page():
             st.markdown("This bar chart shows the yearly trend of forest fires, highlighting years with higher fire incidences.")
             
             try:
-                # Get absolute path to the root of the project
-                BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-                file_path = os.path.join("BASE_DIR", "data", "processed", "combined_fire_climate.csv")
+                file_path = os.path.join("..", "data", "processed", "combined_fire_climate.csv")
                 df_fire_filtered = pd.read_csv(file_path)
                 
                 # Aggregate fire counts by year
@@ -793,9 +781,7 @@ def data_visualization_page():
             st.markdown("This line chart shows the average number of fires by month, highlighting seasonal fire patterns.")
             
             try:
-                # Get absolute path to the root of the project
-                BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-                file_path = os.path.join("BASE_DIR", "data", "processed", "combined_fire_climate.csv")
+                file_path = os.path.join("..", "data", "processed", "combined_fire_climate.csv")
                 df_fire_filtered = pd.read_csv(file_path)
                 
                 # Calculate average fire counts by month
@@ -841,9 +827,7 @@ def data_visualization_page():
             st.markdown("This line chart shows the detailed monthly trend of forest fires over the entire period.")
             
             try:
-                # Get absolute path to the root of the project
-                BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-                file_path = os.path.join("BASE_DIR", "data", "processed", "combined_fire_climate.csv")
+                file_path = os.path.join("..", "data", "processed", "combined_fire_climate.csv")
                 df_fire_filtered = pd.read_csv(file_path)
                 
                 # Aggregate fire counts by year and month
@@ -893,9 +877,7 @@ def data_visualization_page():
         ])
         
         try:
-            # Get absolute path to the root of the project
-            BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-            file_path = os.path.join("BASE_DIR", "data", "processed", "combined_fire_climate.csv")
+            file_path = os.path.join("..", "data", "processed", "combined_fire_climate.csv")
             df = pd.read_csv(file_path)
             
             if climate_fire_viz_type == "Correlation Heatmap":
@@ -993,9 +975,7 @@ def data_visualization_page():
         st.markdown("This interactive visualization allows you to explore fire trends for specific districts in Nepal.")
         
         try:
-            # Get absolute path to the root of the project
-            BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-            file_path = os.path.join("BASE_DIR", "data", "processed", "combined_fire_climate.csv")
+            file_path = os.path.join("..", "data", "processed", "combined_fire_climate.csv")
             df = pd.read_csv(file_path)
             df['MONTH_YEAR'] = df['MONTH'].apply(lambda x: f"{x:02d}") + '-' + df['YEAR'].astype(str)
             districts = sorted(df['DISTRICT'].unique())
