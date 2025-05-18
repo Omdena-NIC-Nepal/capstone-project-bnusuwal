@@ -146,7 +146,7 @@ def interactive_map_page():
     try:
         
         # Load climate data
-        file_path =  os.path.join("..", "data", "processed", "flitered_climate_data.csv")
+        file_path = "data/processed/flitered_climate_data.csv"
         climate_data = pd.read_csv(file_path)
 
         # Create YearMonth column for animation frame
@@ -314,7 +314,7 @@ def interactive_map_page():
         elif map_type == "Fire Variables":
             st.markdown("### Fire Variables Visualization\nExplore fire-related data across Nepal's districts.")
 
-            firefile_path = os.path.join("..", "data", "processed", "combined_fire_climate.csv")
+            firefile_path = "data/processed/combined_fire_climate.csv"
             fire_data = pd.read_csv(firefile_path)
 
             fire_data['YearMonth'] = fire_data['YEAR'].astype(str) + '-' + fire_data['MONTH'].astype(str).str.zfill(2)
@@ -576,7 +576,7 @@ def data_visualization_page():
             
             # Load the data once
             try:
-                file_path = os.path.join("..", "data", "processed", "flitered_climate_data.csv")
+                file_path = "data/processed/flitered_climate_data.csv"
                 df_filtered = pd.read_csv(file_path)
                 
                 # 
@@ -677,7 +677,7 @@ def data_visualization_page():
             
             # Load the data
             try:
-                file_path = os.path.join("..", "data", "processed", "flitered_climate_data.csv")
+                file_path = "data/processed/flitered_climate_data.csv"
                 df_filtered = pd.read_csv(file_path)
                 
               
@@ -711,7 +711,7 @@ def data_visualization_page():
             st.markdown("This bar chart shows the districts with the highest number of forest fires over the 5-year period.")
             
             try:
-                file_path = os.path.join("..", "data", "processed", "combined_fire_climate.csv")
+                file_path = "data/processed/combined_fire_climate.csv"
                 df_fire_filtered = pd.read_csv(file_path)
                 
                 
@@ -740,7 +740,8 @@ def data_visualization_page():
             st.markdown("This bar chart shows the yearly trend of forest fires, highlighting years with higher fire incidences.")
             
             try:
-                file_path = os.path.join("..", "data", "processed", "combined_fire_climate.csv")
+                
+                file_path = "data/processed/combined_fire_climate.csv"
                 df_fire_filtered = pd.read_csv(file_path)
                 
                 # Aggregate fire counts by year
@@ -781,7 +782,7 @@ def data_visualization_page():
             st.markdown("This line chart shows the average number of fires by month, highlighting seasonal fire patterns.")
             
             try:
-                file_path = os.path.join("..", "data", "processed", "combined_fire_climate.csv")
+                file_path = "data/processed/combined_fire_climate.csv"
                 df_fire_filtered = pd.read_csv(file_path)
                 
                 # Calculate average fire counts by month
@@ -827,7 +828,7 @@ def data_visualization_page():
             st.markdown("This line chart shows the detailed monthly trend of forest fires over the entire period.")
             
             try:
-                file_path = os.path.join("..", "data", "processed", "combined_fire_climate.csv")
+                file_path = "data/processed/combined_fire_climate.csv"
                 df_fire_filtered = pd.read_csv(file_path)
                 
                 # Aggregate fire counts by year and month
@@ -877,7 +878,7 @@ def data_visualization_page():
         ])
         
         try:
-            file_path = os.path.join("..", "data", "processed", "combined_fire_climate.csv")
+            file_path = "data/processed/combined_fire_climate.csv"
             df = pd.read_csv(file_path)
             
             if climate_fire_viz_type == "Correlation Heatmap":
@@ -975,7 +976,7 @@ def data_visualization_page():
         st.markdown("This interactive visualization allows you to explore fire trends for specific districts in Nepal.")
         
         try:
-            file_path = os.path.join("..", "data", "processed", "combined_fire_climate.csv")
+            file_path = "data/processed/combined_fire_climate.csv"
             df = pd.read_csv(file_path)
             df['MONTH_YEAR'] = df['MONTH'].apply(lambda x: f"{x:02d}") + '-' + df['YEAR'].astype(str)
             districts = sorted(df['DISTRICT'].unique())
@@ -1081,8 +1082,7 @@ def model_prediction_page():
     </div>
     """, unsafe_allow_html=True)
     
-    model_dir = r"C:\Users\Dell\Desktop\Omdena\project\capstone-project-bnusuwal\models"
-
+    model_dir = os.path.join("models")
     try:
         # Load models and encoders
         risk_model = joblib.load(os.path.join(model_dir, 'risk_model.pkl'))
@@ -1095,7 +1095,7 @@ def model_prediction_page():
     
     # Load combined dataset to extract district and coordinates
     try:
-        combined_df = pd.read_csv("C:/Users/Dell/Desktop/Omdena/forsestfire_ml/data/processed/combined_fire_climate.csv")
+        combined_df = pd.read_csv("data/processed/combined_fire_climate.csv")
     except Exception as e:
         st.error(f"⚠️ Error loading combined dataset: {e}")
         return
@@ -1547,24 +1547,23 @@ def get_confidence_label(confidence):
 def datasets_page():
     st.title("📂 Forest Fire Datasets")
     
-
     st.markdown("Explore the datasets used for climate analysis, fire detection, and forest coverage in Nepal.")
     
     dataset_options = {
         "Climate Data": {
-            "raw_path": r"C:\Users\Dell\Desktop\Omdena\project\capstone-project-bnusuwal\data\raw\climate_data_nepal_district_wise_monthly.csv",
-            "filtered_path": r"C:\Users\Dell\Desktop\Omdena\project\capstone-project-bnusuwal\data\processed\flitered_climate_data.csv",
+            "raw_path": "data/raw/climate_data_nepal_district_wise_monthly.csv",
+            "filtered_path": "data/processed/flitered_climate_data.csv",
             "description": "District-wise monthly climate data from the MERRA2 dataset (2012–2017)."
         },
         "Fire Data": {
-            "raw_path": r"C:\Users\Dell\Desktop\Omdena\project\capstone-project-bnusuwal\data\raw\modis\modis_2012_2017_all_districts.csv",
-            "filtered_path": r"C:\Users\Dell\Desktop\Omdena\project\capstone-project-bnusuwal\data\processed\filtered_fire_data.csv",
+            "raw_path": "data/raw/modis/modis_2012_2017_all_districts.csv",
+            "filtered_path": "data/processed/filtered_fire_data.csv",
             "description": "MODIS satellite fire detection data from NASA LANCE FIRMS (2012–2017)."
         },
         "Forest Coverage Data": {
             "raw_paths": [
-                r"C:\Users\Dell\Desktop\Omdena\project\capstone-project-bnusuwal\data\raw\forest_coverage\forest-coverage-by-district.csv",
-                r"C:\Users\Dell\Desktop\Omdena\project\capstone-project-bnusuwal\data\raw\forest_coverage\forest-coverage-by-province.csv"
+                "data/raw/forest_coverage/forest-coverage-by-district.csv",
+                "data/raw/forest_coverage/forest-coverage-by-province.csv"
             ],
             "description": "Forest coverage data by district and province."
         }
@@ -1608,8 +1607,6 @@ def datasets_page():
                 - **frp**: Fire radiative power (in MW - megawatts)  
                 - **daynight**: Detected during the day or night (`D` for Day, `N` for Night)  
                 """)
-
-            
 
         elif view_option == "View Filtered Data":
             df = pd.read_csv(dataset_options[selected_dataset]["filtered_path"])
