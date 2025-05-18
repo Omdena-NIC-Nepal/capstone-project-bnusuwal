@@ -77,3 +77,4 @@ The application will open in your default web browser.
 ## 🔗 Streamlit App
 
 The Streamlit web application is deployed and can be accessed through the project's URL.
+https://omdena-nic-nepal-capstone-project-bnusuwal-app-3gsczs.streamlit.app/
