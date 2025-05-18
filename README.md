@@ -2,9 +2,7 @@
 
 ### 🌍 Project Overview
 
-This project is an end-to-end data analysis and AI-based prediction system for forest fire occurrences in Nepal, with a special focus on vulnerable regions. Developed under the **Omdena-NIC Nepal Classroom Group B Capstone Project**, it empowers participants with hands-on experience in climate-focused machine learning solutions.
-
----
+## This project is an end-to-end data analysis and AI-based prediction system for forest fire occurrences in Nepal, with a special focus on vulnerable regions.
 
 ### 🎯 Project Goals
 
@@ -29,7 +27,7 @@ capstone-project-bnusuwal/
 ├── data/ # Raw and processed climate & fire datasets
 ├── models/ # Saved machine learning model files
 ├── src/ # Core source code: data processing, modeling, etc.
-├── dashboard/ # Streamlit web application
+├── app.py/ # Streamlit web application
 ├── .github/ # GitHub workflows and configurations
 ├── requirements.txt # Python dependencies
 └── README.md # Project documentation
@@ -48,8 +46,8 @@ capstone-project-bnusuwal/
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/Omdena-NIC-Nepal/capstone-project-bnusuwal.git
-   cd capstone-project-bnusuwal
+   git clone https://github.com/bnusuwal/Simple-Forest-Fire-Risk-Prediction-System.git
+   cd Simple-Forest-Fire-Risk-Prediction-System
 
    ```
 
@@ -75,7 +73,7 @@ capstone-project-bnusuwal/
 
 3. **Access the web interface at:**:
 
-   Alternatively, you can access our deployed application at: https://omdena-nic-nepal-capstone-project-bnusuwal-app-3gsczs.streamlit.app/
+   Alternatively, you can access our deployed application at:
 
 ### 📊 Features
 
