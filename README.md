@@ -68,9 +68,14 @@ capstone-project-bnusuwal/
    ```
 
 2. **Start the Streamlit application:**:
+
    ```bash
    streamlit run app.py
    ```
+
+3. **Access the web interface at:**:
+
+   Alternatively, you can access our deployed application at: https://omdena-nic-nepal-capstone-project-bnusuwal-app-3gsczs.streamlit.app/
 
 ### 📊 Features
 
