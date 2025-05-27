@@ -53,10 +53,10 @@ pip install -r requirements.txt
 
 ### Running the Application
 
-1. **Navigate to the dashboard directory:**
+1. **Navigate to the correct directory to run the app :**
 
 ```bash
-cd dashboard
+cd capstone-project-bnusuwal
 ```
 
 2. **Start the Streamlit app:**
